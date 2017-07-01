@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainCtrl {
 	@RequestMapping(path="/", method=RequestMethod.GET)
 	public String getFrontPage(HttpSession session) {
-		System.out.println("foo");
 		return "index";
 	}
 }

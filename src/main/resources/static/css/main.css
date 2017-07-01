@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+body {
+	background: url("../img/tausta2.jpg")
+				no-repeat center center fixed;
+}
