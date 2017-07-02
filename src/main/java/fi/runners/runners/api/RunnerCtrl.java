@@ -39,6 +39,6 @@ public class RunnerCtrl {
 		runnerDAO.save(r);
 		model.addAttribute("id");
 		model.addAttribute("name");
-		return "redirect:/index";
+		return "index";
 	}
 }
