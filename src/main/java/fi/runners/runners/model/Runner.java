@@ -2,8 +2,6 @@ package fi.runners.runners.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,7 +13,6 @@ import lombok.Setter;
 public class Runner {
 	@Id
 	@Column(name = "runner_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Getter @Setter
 	private String runnerId;
 	@Column(name = "runner_name")
