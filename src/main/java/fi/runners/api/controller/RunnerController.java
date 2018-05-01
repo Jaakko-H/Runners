@@ -3,33 +3,31 @@ package fi.runners.api.controller;
 import java.util.UUID;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import fi.runners.api.entity.Runner;
 import fi.runners.api.repositories.RunnerRepository;
+import fi.runners.dtos.request.RunnerRequestObject;
 
 @Controller
 @RequestMapping("/runners")
-public class RunnerCtrl {
+public class RunnerController {
 	
 	@Inject
 	private RunnerRepository runnerRepository;
 	
-	@PostMapping(path="/", consumes=MediaType.APPLICATION_JSON_VALUE)
-	public String saveRunner(HttpSession session, Model model,
-			@RequestParam(required=true) String runnerName) {
+	@PostMapping(path="/", produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Runner> saveRunner(@RequestBody RunnerRequestObject requestBody) {
 		String uuid = UUID.randomUUID().toString();
-		Runner r = new Runner(uuid, runnerName);
-		runnerRepository.save(r);
-		model.addAttribute("id");
-		model.addAttribute("name");
-		return "index";
+		Runner runner = new Runner(uuid, requestBody.getName());
+		runnerRepository.save(runner);
+		return new ResponseEntity<>(runner, HttpStatus.OK);
 	}
 }

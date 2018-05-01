@@ -5,25 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
 @Table(name = "route")
 public class Route {
 	@Id
 	@Column(name = "route_id")
-	@Getter @Setter
 	private String routeId;
 	
 	@Column(name = "route_name")
-	@Getter @Setter
 	private String routeName;
-	
+
 	@Column(name = "length")
-	@Getter @Setter
 	private int length;
-	
+
 	protected Route() {}
 
 	public Route(String routeId, String routeName, int length) {
@@ -31,5 +25,29 @@ public class Route {
 		this.routeId = routeId;
 		this.routeName = routeName;
 		this.length = length;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public String getRouteId() {
+		return routeId;
+	}
+
+	public String getRouteName() {
+		return routeName;
+	}
+	
+	public void setLength(int length) {
+		this.length = length;
+	}
+	
+	public void setRouteId(String routeId) {
+		this.routeId = routeId;
+	}
+
+	public void setRouteName(String routeName) {
+		this.routeName = routeName;
 	}
 }

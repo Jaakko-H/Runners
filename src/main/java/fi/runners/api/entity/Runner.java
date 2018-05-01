@@ -5,26 +5,37 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
 @Table(name = "runner")
 public class Runner {
 	@Id
 	@Column(name = "runner_id")
-	@Getter @Setter
 	private String runnerId;
 	
-	@Column(name = "runner_name")
-	@Getter @Setter
-	private String runnerName;
-	
+	@Column(name = "name")
+	private String name;
+
 	protected Runner() {}
 
-	public Runner(String runnerId, String runnerName) {
+	public Runner(String runnerId, String name) {
 		super();
 		this.runnerId = runnerId;
-		this.runnerName = runnerName;
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getRunnerId() {
+		return runnerId;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setRunnerId(String runnerId) {
+		this.runnerId = runnerId;
 	}
 }
