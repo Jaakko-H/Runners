@@ -1,4 +1,4 @@
-package fi.runners.runners;
+package fi.runners.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

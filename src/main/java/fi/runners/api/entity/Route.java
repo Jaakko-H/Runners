@@ -1,4 +1,4 @@
-package fi.runners.runners.model;
+package fi.runners.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

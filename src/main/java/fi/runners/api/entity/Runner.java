@@ -1,4 +1,4 @@
-package fi.runners.runners.model;
+package fi.runners.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +15,7 @@ public class Runner {
 	@Column(name = "runner_id")
 	@Getter @Setter
 	private String runnerId;
+	
 	@Column(name = "runner_name")
 	@Getter @Setter
 	private String runnerName;
