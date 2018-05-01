@@ -3,17 +3,14 @@ package fi.runners.api.entity;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.IdClass;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@IdClass(RecordId.class)
 @Table(name = "record")
 public class Record {
 
 	@EmbeddedId
-	@Column(name = "runner_id")
 	@NotNull
 	private RecordId key;
 	
