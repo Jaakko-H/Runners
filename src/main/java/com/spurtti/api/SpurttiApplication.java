@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class})
 @EnableJpaRepositories
-public class RunnersApplication {
+public class SpurttiApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(RunnersApplication.class, args);
+		SpringApplication.run(SpurttiApplication.class, args);
 	}
 }

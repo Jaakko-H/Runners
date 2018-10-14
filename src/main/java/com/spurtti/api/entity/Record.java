@@ -14,11 +14,11 @@ public class Record {
 	@NotNull
 	private RecordId key;
 	
-	@Column(name = "route_id")
+	@Column(name = "routeId")
 	@NotNull
 	private String routeId;
 	
-	@Column(name = "record_time")
+	@Column(name = "recordTime")
 	@NotNull
 	private long recordTime;
 

@@ -1,14 +1,14 @@
 package com.spurtti.dtos.request;
 
-public class RunnerRequestObject {
+public class UserRequestObject {
 	
-	private String name;
+	private String username;
 
 	public String getName() {
-		return name;
+		return username;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.username = name;
 	}
 }

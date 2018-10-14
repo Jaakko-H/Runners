@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spurtti.api.entity.Runner;
-import com.spurtti.api.repositories.RunnerRepository;
-import com.spurtti.dtos.request.RunnerRequestObject;
+import com.spurtti.api.entity.User;
+import com.spurtti.api.repositories.UserRepository;
+import com.spurtti.dtos.request.UserRequestObject;
 
 @Controller
-@RequestMapping("/runners")
-public class RunnerController {
+@RequestMapping("/users")
+public class UserController {
 	
 	@Inject
-	private RunnerRepository runnerRepository;
+	private UserRepository userRepository;
 	
 	@PostMapping(path="/", produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Runner> saveRunner(@RequestBody RunnerRequestObject requestBody) {
+	public ResponseEntity<User> saveRunner(@RequestBody UserRequestObject requestBody) {
 		String uuid = UUID.randomUUID().toString();
-		Runner runner = new Runner(uuid, requestBody.getName());
-		runnerRepository.save(runner);
-		return new ResponseEntity<>(runner, HttpStatus.OK);
+		User user = new User(uuid, requestBody.getName());
+		userRepository.save(user);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 }

@@ -12,17 +12,17 @@ public class RecordId implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name = "runner_id")
+	@Column(name = "userId")
 	@NotNull
-	private String runnerId;
-	@Column(name = "entry_time")
+	private String userId;
+	@Column(name = "entryTime")
 	@NotNull
     private Instant entryTime;
 
 	public RecordId() {}
 
-	public RecordId(String runnerId, Instant entryTime) {
-		this.runnerId = runnerId;
+	public RecordId(String userId, Instant entryTime) {
+		this.userId = userId;
 		this.entryTime = entryTime;
 	}
 
@@ -31,14 +31,14 @@ public class RecordId implements Serializable {
 	}
 
 	public String getRunnerId() {
-		return runnerId;
+		return userId;
 	}
 
     public void setEntryTime(Instant entryTime) {
 		this.entryTime = entryTime;
 	}
 
-	public void setRunnerId(String runnerId) {
-		this.runnerId = runnerId;
+	public void setRunnerId(String userId) {
+		this.userId = userId;
 	}
 }
