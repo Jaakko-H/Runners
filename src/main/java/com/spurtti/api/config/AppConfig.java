@@ -1,3 +1,4 @@
+package com.spurtti.api.config;
 //package fi.runners.api.config;
 //
 //import java.util.Properties;

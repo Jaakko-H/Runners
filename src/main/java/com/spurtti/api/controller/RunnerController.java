@@ -1,4 +1,4 @@
-package fi.runners.api.controller;
+package com.spurtti.api.controller;
 
 import java.util.UUID;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import fi.runners.api.entity.Runner;
-import fi.runners.api.repositories.RunnerRepository;
-import fi.runners.dtos.request.RunnerRequestObject;
+import com.spurtti.api.entity.Runner;
+import com.spurtti.api.repositories.RunnerRepository;
+import com.spurtti.dtos.request.RunnerRequestObject;
 
 @Controller
 @RequestMapping("/runners")

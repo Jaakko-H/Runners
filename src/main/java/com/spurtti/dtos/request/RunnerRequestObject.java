@@ -1,4 +1,4 @@
-package fi.runners.dtos.request;
+package com.spurtti.dtos.request;
 
 public class RunnerRequestObject {
 	

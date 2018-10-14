@@ -1,4 +1,4 @@
-package fi.runners.api.controller;
+package com.spurtti.api.controller;
 
 import javax.servlet.http.HttpSession;
 

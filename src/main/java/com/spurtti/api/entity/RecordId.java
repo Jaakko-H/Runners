@@ -1,4 +1,4 @@
-package fi.runners.api.entity;
+package com.spurtti.api.entity;
 
 import java.io.Serializable;
 import java.time.Instant;

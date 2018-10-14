@@ -8,8 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Runners API</name>
-	<description>A REST API for project Runners</description>
+	<name>Spurtti API</name>
+	<description>A REST API for data access for project Spurtti</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
