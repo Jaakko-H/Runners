@@ -1,6 +1,8 @@
 package com.spurtti.api.dto.response;
 
-import java.time.Instant;
+import java.time.ZonedDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * Base Dto class for all record data.
@@ -10,13 +12,19 @@ import java.time.Instant;
  */
 public abstract class AbstractRecordDto {
 	
-	private Instant entryTime;
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
+	private ZonedDateTime entryTime;
+	
 	private String sportType;
+	private String userId;
 
-	public Instant getEntryTime() {
+	public ZonedDateTime getEntryTime() {
 		return entryTime;
 	}
 	public String getSportType() {
 		return sportType;
+	}
+	public String getUserId() {
+		return userId;
 	}
 }

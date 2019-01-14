@@ -21,6 +21,14 @@ public class AbstractRecord {
 	private String sportType;
 	
 	private String userId;
+	
+	protected AbstractRecord() {}
+	
+	protected AbstractRecord(Instant entryTime, String sportType, String userId) {
+		this.entryTime = entryTime;
+		this.sportType = sportType;
+		this.userId = userId;
+	}
 
 	public Instant getEntryTime() {
 		return entryTime;
