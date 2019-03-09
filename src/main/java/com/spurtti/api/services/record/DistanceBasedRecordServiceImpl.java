@@ -1,5 +1,6 @@
 package com.spurtti.api.services.record;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,8 +24,19 @@ public class DistanceBasedRecordServiceImpl extends AbstractService implements D
 
 	@Override
 	public List<DistanceBasedRecordDto> getRecordsBySportType(String sportType) {
-		// TODO Auto-generated method stub
-		return null;
+		return convertRecordEntitiesToDtos(repository.findAll());
+	}
+	
+	private List<DistanceBasedRecordDto> convertRecordEntitiesToDtos(List<DistanceBasedRecord> records) {
+		List<DistanceBasedRecordDto> recordDtos = new ArrayList<>();
+		for (DistanceBasedRecord record : records) {
+			recordDtos.add(convertRecordEntityToDto(record));
+		}
+		return recordDtos;
+	}
+	
+	private DistanceBasedRecordDto convertRecordEntityToDto(DistanceBasedRecord record) {
+		return new DistanceBasedRecordDto(record);
 	}
 	
 	private DistanceBasedRecord convertRecordDtoToEntity(DistanceBasedRecordDto recordDto) {
