@@ -1,6 +1,8 @@
 package com.spurtti.api.controller.record;
 
-public abstract class AbstractRecordController {
+import com.spurtti.api.controller.AbstractController;
 
-	protected static final String CONTEXT_PATH = "/records";
+public abstract class AbstractRecordController extends AbstractController {
+
+	protected static final String CONTEXT_PATH = AbstractController.CONTEXT_PATH + "/distance-based";
 }

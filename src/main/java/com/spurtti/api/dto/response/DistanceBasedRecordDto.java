@@ -3,7 +3,7 @@ package com.spurtti.api.dto.response;
 import com.spurtti.api.collection.DistanceBasedRecord;
 
 /**
- * Dto class for distance based records.
+ * Data transfer object class for distance based records.
  * 
  * @author Jaakko-H
  *
