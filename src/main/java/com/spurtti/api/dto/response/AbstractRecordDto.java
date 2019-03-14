@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.spurtti.api.collection.AbstractRecord;
 
 /**
- * Base Dto class for all record data.
+ * Base data transfer object class for all record data.
  * 
  * @author Jaakko-H
  *

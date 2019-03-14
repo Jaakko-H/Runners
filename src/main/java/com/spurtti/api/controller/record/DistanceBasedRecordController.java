@@ -18,7 +18,7 @@ import com.spurtti.api.services.record.DistanceBasedRecordService;
 
 @RestController
 @RequestMapping(AbstractRecordController.CONTEXT_PATH + "/distance-based")
-public class DistanceBasedRecordController {
+public class DistanceBasedRecordController extends AbstractRecordController {
 	
 	@Inject
 	private DistanceBasedRecordService service;
@@ -30,6 +30,6 @@ public class DistanceBasedRecordController {
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<DistanceBasedRecordDto> createRecord(@RequestBody DistanceBasedRecordDto recordDto) {
-		return new ResponseEntity<DistanceBasedRecordDto>(service.createRecord(recordDto), HttpStatus.OK);
+		return new ResponseEntity<DistanceBasedRecordDto>(service.create(recordDto), HttpStatus.OK);
 	}
 }

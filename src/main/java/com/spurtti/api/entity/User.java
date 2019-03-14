@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.spurtti.api.dto.response.UserDto;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -18,10 +20,9 @@ public class User {
 
 	protected User() {}
 
-	public User(String userId, String username) {
-		super();
-		this.userId = userId;
-		this.username = username;
+	public User(UserDto userDto) {
+		this.userId = userDto.getUserId();
+		this.username = userDto.getUsername();
 	}
 
 	public String getUsername() {

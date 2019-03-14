@@ -1,6 +1,4 @@
-package com.spurtti.api.controller;
-
-import java.util.UUID;
+package com.spurtti.api.controller.user;
 
 import javax.inject.Inject;
 
@@ -12,22 +10,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spurtti.api.entity.User;
-import com.spurtti.api.repositories.UserRepository;
-import com.spurtti.dtos.request.UserRequestObject;
+import com.spurtti.api.dto.response.UserDto;
+import com.spurtti.api.services.user.UserService;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
 	
 	@Inject
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	@PostMapping(path="/", produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<User> saveRunner(@RequestBody UserRequestObject requestBody) {
-		String uuid = UUID.randomUUID().toString();
-		User user = new User(uuid, requestBody.getName());
-		userRepository.save(user);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+	public ResponseEntity<UserDto> create(@RequestBody UserDto userDto) {
+		return new ResponseEntity<>(userService.create(userDto), HttpStatus.OK);
 	}
 }

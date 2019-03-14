@@ -6,7 +6,16 @@ import com.spurtti.api.dto.response.DistanceBasedRecordDto;
 
 public interface DistanceBasedRecordService {
 	
-	DistanceBasedRecordDto createRecord(DistanceBasedRecordDto recordDto);
+	/**
+	 * Create a new distance based record.
+	 * 
+	 * @param recordDto - Record DTO containing record data to be stored
+	 * @return - Record DTO representing saved record data
+	 */
+	DistanceBasedRecordDto create(DistanceBasedRecordDto recordDto);
 
+	/**
+	 * TODO: Change this to a search method.
+	 */
 	List<DistanceBasedRecordDto> getRecordsBySportType(String sportType);
 }
