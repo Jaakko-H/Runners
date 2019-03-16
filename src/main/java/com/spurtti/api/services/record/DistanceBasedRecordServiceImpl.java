@@ -2,6 +2,7 @@ package com.spurtti.api.services.record;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,32 +20,17 @@ public class DistanceBasedRecordServiceImpl extends AbstractService implements D
 	
 	@Override
 	public DistanceBasedRecordDto createRecord(DistanceBasedRecordDto recordDto) {
-		return new DistanceBasedRecordDto(repository.save(convertRecordDtoToEntity(recordDto)));
+		return new DistanceBasedRecordDto(repository.save(new DistanceBasedRecord(recordDto)));
 	}
 
 	@Override
-	public List<DistanceBasedRecordDto> getRecordsBySportType(String sportType) {
+	public List<DistanceBasedRecordDto> searchRecords(Map<String, Object> searchParams) {
 		return convertRecordEntitiesToDtos(repository.findAll());
 	}
 	
 	private List<DistanceBasedRecordDto> convertRecordEntitiesToDtos(List<DistanceBasedRecord> records) {
 		List<DistanceBasedRecordDto> recordDtos = new ArrayList<>();
-		for (DistanceBasedRecord record : records) {
-			recordDtos.add(convertRecordEntityToDto(record));
-		}
+		records.forEach(record -> recordDtos.add(new DistanceBasedRecordDto(record)));
 		return recordDtos;
-	}
-	
-	private DistanceBasedRecordDto convertRecordEntityToDto(DistanceBasedRecord record) {
-		return new DistanceBasedRecordDto(record);
-	}
-	
-	private DistanceBasedRecord convertRecordDtoToEntity(DistanceBasedRecordDto recordDto) {
-		return new DistanceBasedRecord(
-				recordDto.getEntryTime().toInstant(),
-				recordDto.getSportType(),
-				recordDto.getUserId(),
-				recordDto.getDistance(),
-				recordDto.getDuration());
 	}
 }

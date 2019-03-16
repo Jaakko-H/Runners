@@ -1,6 +1,8 @@
 package com.spurtti.api.controller.record;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -11,10 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spurtti.api.dto.response.DistanceBasedRecordDto;
 import com.spurtti.api.services.record.DistanceBasedRecordService;
+import com.spurtti.api.utils.SearchParams;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -32,8 +36,11 @@ public class DistanceBasedRecordController extends AbstractRecordController {
 	@ApiResponses({
 		@ApiResponse(code = 200, message = "OK")
 	})
-	public ResponseEntity<List<DistanceBasedRecordDto>> getRecords() {
-		return new ResponseEntity<List<DistanceBasedRecordDto>>(service.getRecordsBySportType("walk"), HttpStatus.OK);
+	public ResponseEntity<List<DistanceBasedRecordDto>> getRecords(
+			@RequestParam(value = SearchParams.SPORT_TYPE, required=false) String sportType) {
+		Map<String, Object> searchParams = new HashMap<>();
+		searchParams.put(SearchParams.SPORT_TYPE, sportType);
+		return new ResponseEntity<List<DistanceBasedRecordDto>>(service.searchRecords(searchParams), HttpStatus.OK);
 	}
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)

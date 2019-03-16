@@ -1,6 +1,6 @@
 package com.spurtti.api.collection;
 
-import java.time.Instant;
+import com.spurtti.api.dto.response.DistanceBasedRecordDto;
 
 /**
  * Collection class which represents any kind of time- and distance based sport records, e.g. walk, run.
@@ -17,10 +17,12 @@ public class DistanceBasedRecord extends AbstractRecord {
 		super();
 	}
 	
-	public DistanceBasedRecord(Instant entryTime, String sportType, String userId, Double distance, Long duration) {
-		super(entryTime, sportType, userId);
-		this.distance = distance;
-		this.duration = duration;
+	public DistanceBasedRecord(DistanceBasedRecordDto recordDto) {
+		super(recordDto.getEntryTime().toInstant(),
+				recordDto.getSportType(),
+				recordDto.getUserId());
+		this.distance = recordDto.getDistance();
+		this.duration = recordDto.getDuration();
 	}
 	
 	public Double getDistance() {
