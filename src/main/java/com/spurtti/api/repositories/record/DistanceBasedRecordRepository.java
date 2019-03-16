@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.spurtti.api.collection.DistanceBasedRecord;
 
-public interface DistanceBasedRecordRepository extends MongoRepository<DistanceBasedRecord, ObjectId> {
+public interface DistanceBasedRecordRepository extends DistanceBasedRecordRepositoryCustom,
+		MongoRepository<DistanceBasedRecord, ObjectId> {
 
 }

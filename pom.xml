@@ -40,6 +40,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -66,6 +67,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Swagger dependencies -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -76,15 +78,18 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+		<!-- Database dependencies -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
+		<!-- Javax Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+		<!-- Jackson dependencies -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.module</groupId>
 			<artifactId>jackson-module-parameter-names</artifactId>
@@ -96,6 +101,12 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+		<!-- Apache dependencies -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.8</version>
 		</dependency>
 	</dependencies>
 </project>
