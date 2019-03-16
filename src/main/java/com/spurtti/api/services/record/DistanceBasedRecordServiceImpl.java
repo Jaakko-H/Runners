@@ -18,7 +18,7 @@ public class DistanceBasedRecordServiceImpl extends AbstractService implements D
 	private DistanceBasedRecordRepository repository;
 	
 	@Override
-	public DistanceBasedRecordDto create(DistanceBasedRecordDto recordDto) {
+	public DistanceBasedRecordDto createRecord(DistanceBasedRecordDto recordDto) {
 		return new DistanceBasedRecordDto(repository.save(convertRecordDtoToEntity(recordDto)));
 	}
 

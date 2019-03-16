@@ -12,7 +12,7 @@ public interface DistanceBasedRecordService {
 	 * @param recordDto - Record DTO containing record data to be stored
 	 * @return - Record DTO representing saved record data
 	 */
-	DistanceBasedRecordDto create(DistanceBasedRecordDto recordDto);
+	DistanceBasedRecordDto createRecord(DistanceBasedRecordDto recordDto);
 
 	/**
 	 * TODO: Change this to a search method.
