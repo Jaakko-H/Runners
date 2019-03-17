@@ -9,9 +9,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {EmbeddedMongoAutoConfiguration.class, SecurityAutoConfiguration.class})
 @EnableJpaRepositories
 @EnableMongoRepositories
 @EntityScan(basePackageClasses = {SpurttiApplication.class, Jsr310JpaConverters.class})

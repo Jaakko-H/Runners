@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fi.runners</groupId>
-	<artifactId>runners-api</artifactId>
+	<groupId>com.spurtti.api</groupId>
+	<artifactId>spurtti-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -15,9 +15,9 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -27,7 +27,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-autoconfigure</artifactId>
-				<version>2.0.4.RELEASE</version>
+				<version>1.5.4.RELEASE</version>
 			</plugin>
 		</plugins>
 	</build>
@@ -40,14 +40,15 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -66,31 +67,58 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Swagger dependencies -->
 		<dependency>
-    		<groupId>io.springfox</groupId>
-		    <artifactId>springfox-swagger2</artifactId>
-		    <version>2.9.2</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-	    </dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<!-- Database dependencies -->
 		<dependency>
-		    <groupId>javax.inject</groupId>
-		    <artifactId>javax.inject</artifactId>
-		    <version>1</version>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		<!-- Javax Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+		<!-- Jackson dependencies -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-parameter-names</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>com.fasterxml.jackson.module</groupId>
-		    <artifactId>jackson-module-parameter-names</artifactId>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jdk8</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>com.fasterxml.jackson.datatype</groupId>
-		    <artifactId>jackson-datatype-jdk8</artifactId>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+		<!-- Apache dependencies -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.8.1</version>
+		</dependency>
+		<!-- Test dependencies -->
+		<dependency>
+		    <groupId>pl.pragmatists</groupId>
+		    <artifactId>JUnitParams</artifactId>
+		    <version>1.1.0</version>
+		    <scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>com.fasterxml.jackson.datatype</groupId>
-		    <artifactId>jackson-datatype-jsr310</artifactId>
+		    <groupId>de.flapdoodle.embed</groupId>
+		    <artifactId>de.flapdoodle.embed.mongo</artifactId>
+		    <scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

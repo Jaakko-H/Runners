@@ -1,6 +1,8 @@
 package com.spurtti.api.controller;
 
-public class AbstractController {
+public abstract class AbstractController {
 
 	protected static final String CONTEXT_PATH = "/spurtti-api";
+	
+	protected AbstractController() {}
 }
