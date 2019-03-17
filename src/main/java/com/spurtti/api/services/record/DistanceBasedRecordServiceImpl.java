@@ -25,7 +25,7 @@ public class DistanceBasedRecordServiceImpl extends AbstractService implements D
 
 	@Override
 	public List<DistanceBasedRecordDto> searchRecords(Map<String, Object> searchParams) {
-		return convertRecordEntitiesToDtos(repository.findAll());
+		return convertRecordEntitiesToDtos(repository.searchRecords(searchParams));
 	}
 	
 	private List<DistanceBasedRecordDto> convertRecordEntitiesToDtos(List<DistanceBasedRecord> records) {
