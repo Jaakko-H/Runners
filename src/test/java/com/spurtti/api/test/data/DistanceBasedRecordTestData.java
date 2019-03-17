@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.spurtti.api.collection.DistanceBasedRecord;
-import com.spurtti.api.dto.response.DistanceBasedRecordDto;
 import com.spurtti.api.utils.SearchParams;
 
 public class DistanceBasedRecordTestData {
@@ -23,6 +22,8 @@ public class DistanceBasedRecordTestData {
 	public static final String USER_ID_1 = "userId1";
 	public static final String USER_ID_2 = "userId2";
 	
+	private DistanceBasedRecordTestData() {}
+	
 	public static DistanceBasedRecord createRecordWithParams(String entryTimeString, Double distance, Long duration,
 			String sportType, String userId) {
 		DistanceBasedRecord record = new DistanceBasedRecord();
@@ -32,12 +33,6 @@ public class DistanceBasedRecordTestData {
 		record.setSportType(sportType);
 		record.setUserId(userId);
 		return record;
-	}
-	
-	public static DistanceBasedRecordDto createRecordDtoWithParams(String entryTimeString, Double distance,
-			Long duration, String sportType, String userId) {
-		return new DistanceBasedRecordDto(createRecordWithParams(
-				entryTimeString, distance, duration, sportType, userId));
 	}
 	
 	public static Map<String, Object> createSearchParams(String sportType) {

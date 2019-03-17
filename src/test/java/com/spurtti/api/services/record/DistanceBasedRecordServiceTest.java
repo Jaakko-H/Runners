@@ -47,7 +47,7 @@ public class DistanceBasedRecordServiceTest {
 	}
 	
 	@Test
-	public void testCreate() {
+	public void testCreateRecord() {
 		when(mockRepository.save(any(DistanceBasedRecord.class))).thenReturn(record);
 		
 		DistanceBasedRecordDto recordDto = service.createRecord(new DistanceBasedRecordDto(record));
@@ -60,7 +60,7 @@ public class DistanceBasedRecordServiceTest {
 	}
 	
 	@Test
-	public void testSearch() {
+	public void testSearchRecords() {
 		when(mockRepository.searchRecords(searchParamsCaptor.capture())).thenReturn(records);
 		
 		List<DistanceBasedRecordDto> recordDtos = service.searchRecords(createSearchParams(SPORT_TYPE_WALK));
