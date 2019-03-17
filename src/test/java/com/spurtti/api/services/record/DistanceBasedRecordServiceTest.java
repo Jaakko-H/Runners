@@ -63,7 +63,8 @@ public class DistanceBasedRecordServiceTest {
 	public void testSearchRecords() {
 		when(mockRepository.searchRecords(searchParamsCaptor.capture())).thenReturn(records);
 		
-		List<DistanceBasedRecordDto> recordDtos = service.searchRecords(createSearchParams(SPORT_TYPE_WALK));
+		List<DistanceBasedRecordDto> recordDtos = service.searchRecords(createSearchParamsWithOneParam(
+				SearchParams.SPORT_TYPE, SPORT_TYPE_WALK));
 		
 		assertEquals(SPORT_TYPE_WALK, searchParamsCaptor.getValue().get(SearchParams.SPORT_TYPE));
 		assertEquals(1, recordDtos.size());

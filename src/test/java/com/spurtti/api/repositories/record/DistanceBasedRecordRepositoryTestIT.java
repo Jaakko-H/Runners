@@ -3,6 +3,7 @@ package com.spurtti.api.repositories.record;
 import static org.junit.Assert.assertEquals;
 import static com.spurtti.api.test.data.DistanceBasedRecordTestData.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -19,6 +20,7 @@ import org.springframework.test.context.junit4.rules.SpringMethodRule;
 
 import com.spurtti.api.SpurttiApplication;
 import com.spurtti.api.collection.DistanceBasedRecord;
+import com.spurtti.api.utils.SearchParams;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -49,16 +51,40 @@ public class DistanceBasedRecordRepositoryTestIT {
 	}
 	
 	@Test
+	public void testSearchRecordsWithoutParams() {
+		List<DistanceBasedRecord> records = repository.searchRecords(new HashMap<>());
+		assertEquals(2, records.size());
+	}
+	
+	@Test
 	@Parameters(method = "testSearchRecordsParams")
-	public void testSearchRecords(String sportType, int expectedResultSize) {
-		List<DistanceBasedRecord> records = repository.searchRecords(createSearchParams(sportType));
-		assertEquals(expectedResultSize, records.size());
+	public void testSearchRecords(String paramKey, Object paramValue, int expectedResultIndex) {
+		List<DistanceBasedRecord> records = repository.searchRecords(createSearchParamsWithOneParam(
+				paramKey, paramValue));
+		assertEquals(1, records.size());
+		assertResult(expectedResultIndex, records.get(0));
 	}
 	
 	Object[][] testSearchRecordsParams() {
 		return new Object[][] {
-			{ SPORT_TYPE_WALK, 1 },
-			{ null, 2 }
+			{ SearchParams.SPORT_TYPE, SPORT_TYPE_WALK, 1 },
+			{ SearchParams.SPORT_TYPE, SPORT_TYPE_RUN, 2 }
 		};
+	}
+	
+	private void assertResult(int resultIndex, DistanceBasedRecord record) {
+		if (resultIndex == 1) {
+			assertEquals(ENTRY_TIME_1, record.getEntryTime().toString());
+			assertEquals(DISTANCE_1, record.getDistance());
+			assertEquals(DURATION_1, record.getDuration());
+			assertEquals(SPORT_TYPE_WALK, record.getSportType());
+			assertEquals(USER_ID_1, record.getUserId());
+		} else if (resultIndex == 2) {
+			assertEquals(ENTRY_TIME_2, record.getEntryTime().toString());
+			assertEquals(DISTANCE_2, record.getDistance());
+			assertEquals(DURATION_2, record.getDuration());
+			assertEquals(SPORT_TYPE_RUN, record.getSportType());
+			assertEquals(USER_ID_2, record.getUserId());
+		}
 	}
 }

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.spurtti.api.collection.DistanceBasedRecord;
-import com.spurtti.api.utils.SearchParams;
 
 public class DistanceBasedRecordTestData {
 
@@ -35,9 +34,9 @@ public class DistanceBasedRecordTestData {
 		return record;
 	}
 	
-	public static Map<String, Object> createSearchParams(String sportType) {
+	public static Map<String, Object> createSearchParamsWithOneParam(String paramKey, Object paramValue) {
 		Map<String, Object> searchParams = new HashMap<>();
-		searchParams.put(SearchParams.SPORT_TYPE, sportType);
+		searchParams.put(paramKey, paramValue);
 		return searchParams;
 	}
 }

@@ -25,8 +25,10 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-@RequestMapping(AbstractRecordController.CONTEXT_PATH + "/distance-based")
+@RequestMapping(DistanceBasedRecordController.CONTEXT_PATH)
 public class DistanceBasedRecordController extends AbstractRecordController {
+	
+	protected static final String CONTEXT_PATH = AbstractRecordController.CONTEXT_PATH + "/distance-based";
 	
 	@Inject
 	private DistanceBasedRecordService service;
