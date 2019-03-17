@@ -18,13 +18,13 @@ public class DistanceBasedRecordRepositoryImpl extends AbstractRecordRepository
 
 	@Override
 	public List<DistanceBasedRecord> searchRecords(Map<String, Object> searchParams) {
-		Query query = handleCommonSearchCriteria(new Query(), searchParams);
-		query = handleSearchCriteria(query, searchParams);
+		Query query = new Query();
+		handleCommonSearchCriteria(query, searchParams);
+		handleSearchCriteria(query, searchParams);
 		return mongoTemplate.find(query, DistanceBasedRecord.class);
 	}
 	
-	private Query handleSearchCriteria(Query query, Map<String, Object> searchParams) {
+	private void handleSearchCriteria(Query query, Map<String, Object> searchParams) {
 		// TODO
-		return query;
 	}
 }

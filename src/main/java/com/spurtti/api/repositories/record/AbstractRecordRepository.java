@@ -12,11 +12,10 @@ public abstract class AbstractRecordRepository {
 	
 	protected static final String FIELD_SPORT_TYPE = "sportType";
 
-	protected Query handleCommonSearchCriteria(Query query, Map<String, Object> searchParams) {
+	protected void handleCommonSearchCriteria(Query query, Map<String, Object> searchParams) {
 		String sportType = (String) searchParams.get(SearchParams.SPORT_TYPE);
 		if (StringUtils.isNotBlank(sportType)) {
 			query.addCriteria(Criteria.where(FIELD_SPORT_TYPE).is(sportType));
 		}
-		return query;
 	}
 }

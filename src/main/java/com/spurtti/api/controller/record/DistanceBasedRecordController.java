@@ -40,7 +40,7 @@ public class DistanceBasedRecordController extends AbstractRecordController {
 			@RequestParam(value = SearchParams.SPORT_TYPE, required=false) String sportType) {
 		Map<String, Object> searchParams = new HashMap<>();
 		searchParams.put(SearchParams.SPORT_TYPE, sportType);
-		return new ResponseEntity<List<DistanceBasedRecordDto>>(service.searchRecords(searchParams), HttpStatus.OK);
+		return new ResponseEntity<>(service.searchRecords(searchParams), HttpStatus.OK);
 	}
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -49,6 +49,6 @@ public class DistanceBasedRecordController extends AbstractRecordController {
 		@ApiResponse(code = 200, message = "New distance based record created.")
 	})
 	public ResponseEntity<DistanceBasedRecordDto> createRecord(@RequestBody DistanceBasedRecordDto recordDto) {
-		return new ResponseEntity<DistanceBasedRecordDto>(service.createRecord(recordDto), HttpStatus.OK);
+		return new ResponseEntity<>(service.createRecord(recordDto), HttpStatus.OK);
 	}
 }
